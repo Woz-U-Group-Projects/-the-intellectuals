@@ -17,6 +17,7 @@ import com.rantapp.User;
 import com.rantapp.UserRepository;
 
 public class HomeController {
+	// Test Comment
 
 	@Autowired
 	private UserRepository userRepository;
