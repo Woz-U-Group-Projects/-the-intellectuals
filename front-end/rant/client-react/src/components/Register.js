@@ -1,9 +1,5 @@
 import React from "react";
 import axios from "axios";
-import  Home from "./Home";
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 import '../task.min.css'
 class Task extends React.Component {
   constructor(props) {
@@ -52,9 +48,7 @@ class Task extends React.Component {
 
   render() {
     return (
-      <Router>
       <div>
-        <a href='/'>Home</a>
         <h3>MESSAGES</h3>
         <input ref={this.taskName} />
         <button type="button" className="btn btn-primary" onClick={this.addTask}>Send</button>
@@ -65,18 +59,7 @@ class Task extends React.Component {
             </li>
           ))}
         </ul>
-        <Route exact path='/' component={Home} />
-        {/* <Route path='/Home' exact render={(props) => {(
-        <>
-        <div>
-          <h3>Home</h3>
-          <a href='/Task'>Task</a>
-          <Route path='/Task' component={Task} />
-        </div>
-        </>
-        )} /> */}
       </div>
-      </Router>
     );
   }
 }
