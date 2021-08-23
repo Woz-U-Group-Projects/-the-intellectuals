@@ -11,6 +11,7 @@ class Home extends React.Component {
   render() {
     return (
       <Router>
+
         <div>
           <h3>Home</h3>
           <a href='/Message'>Messages</a>
@@ -21,10 +22,19 @@ class Home extends React.Component {
           <Route path='/Register' component={Register} />
           <Route path='/Login' component={Login} />
           </Switch>
+
+          <div style={{background: "#ffffff"}} className="Home">
+          <h1 style={{background: "#00bff3"}}>"Rants"</h1>
+          <a href='/Message'>Chat</a>
+          <Route path='/Message' component={Message} />
+          </div>
         </div>
       </Router>
     );
   }
 }
+  Headers.defaultProps = {
+  title: 'hows the day',
+  }
 
 export default Home;

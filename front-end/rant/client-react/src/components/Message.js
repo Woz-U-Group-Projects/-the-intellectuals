@@ -61,7 +61,8 @@ class Message extends React.Component {
         <ul>
           {this.state.tasks.map(p => (
             <li key={p.id}>
-              {p.message} <button type="button" className="btn btn-danger">Delete</button>
+              {p.message} 
+              <button type="button" className="btn btn-danger">Delete</button>
             </li>
           ))}
         </ul>
