@@ -30,12 +30,12 @@ class Home extends React.Component {
           <Route path='/Message' component={Message} />
           </div>
           <div>
-            <img 
+            {/* <img 
               alt= 'The Rant' 
               // src={'../image/nsey-benajah-5_gku5Usbzk-unsplash.jpg'}
               ClassName="home-rant-image"
               style={{ float: 'middle' }}
-               />
+               /> */}
           </div>
         </div>
       </Router>
