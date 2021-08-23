@@ -52,13 +52,8 @@ class Register extends React.Component {
         <h3>Register</h3>
         <input ref={this.taskName} />
         <button type="button" className="btn btn-primary" onClick={this.addTask}>Sign Up</button>
-        <ul>
-          {this.state.tasks.map(p => (
-            <li key={p.id}>
-              {p.message}
-            </li>
-          ))}
-        </ul>
+        <div>REGISTER NOT DONE YET</div>
+          
       </div>
     );
   }

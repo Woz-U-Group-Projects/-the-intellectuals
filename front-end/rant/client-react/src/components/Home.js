@@ -13,18 +13,21 @@ class Home extends React.Component {
       <Router>
 
         <div>
-          <h3>Home</h3>
-          <a href='/Message'>Messages</a>
-          <a href= '/Login'>Login</a>
-          <a href= '/Register'>Register</a>
+          <h1 style={{background: "#00bff3"}}>"Rants"</h1>
+
+          <nav className="navbar navbar-expand-lg navbar-light bg-light" >
+            <h3><a className="navbar-brand" href='/'>Home</a></h3>
+            <a className="navbar-brand" href='/Message'>Messages</a>
+            <a className="navbar-brand" href= '/Login'>Login</a>
+            <a className="navbar-brand" href= '/Register'>Register</a>
+          </nav>
           <Switch>
           <Route path='/Message' component={Message} />
           <Route path='/Register' component={Register} />
           <Route path='/Login' component={Login} />
           </Switch>
-
           <div style={{background: "#ffffff"}} className="Home">
-          <h1 style={{background: "#00bff3"}}>"Rants"</h1>
+          
           <a href='/Message'>Chat</a>
           <Route path='/Message' component={Message} />
           </div>

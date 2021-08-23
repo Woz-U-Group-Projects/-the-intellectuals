@@ -50,15 +50,7 @@ class Login extends React.Component {
     return (
       <div>
         <h3>Login</h3>
-        <input ref={this.taskName} />
-        <button type="button" className="btn btn-primary" onClick={this.addTask}>Sign in</button>
-        <ul>
-          {this.state.tasks.map(p => (
-            <li key={p.id}>
-              {p.message} <button type="button" className="btn btn-danger">Delete</button>
-            </li>
-          ))}
-        </ul>
+        <div>LOGIN NOT DONE YET</div>
       </div>
     );
   }

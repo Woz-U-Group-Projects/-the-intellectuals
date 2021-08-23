@@ -55,7 +55,6 @@ class Message extends React.Component {
     return (
       <Router>
       <div>
-        <a href='/'>Home</a>
         <h3>MESSAGES</h3>
   
         {/* <input ref={this.messageContent} />
@@ -74,6 +73,8 @@ class Message extends React.Component {
             height="100vh"
             projectID="098f0f3f-039d-433e-8e78-7a6f4ae2b73d"
             userName="MD"
+            // Change the username to EE 
+            // Change the username to CB 
             userSecret="admin" />
       </div>
       </Router>
