@@ -1,4 +1,6 @@
 import React from "react";
+
+
 // import  Task from "./components/Task";
 import  Home from "./components/Home";
 // import  Register from "./components/Register";
@@ -11,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Home title='Hello' />
+      
     </div>
   );
 }

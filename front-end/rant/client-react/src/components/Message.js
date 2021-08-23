@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import  Home from "./Home";
+import { ChatEngine } from "react-chat-engine";
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -56,7 +57,8 @@ class Message extends React.Component {
       <div>
         <a href='/'>Home</a>
         <h3>MESSAGES</h3>
-        <input ref={this.messageContent} />
+  
+        {/* <input ref={this.messageContent} />
         <button type="button" className="btn btn-primary" onClick={this.sendMessage}>Send</button>
         <ul>
           {this.state.tasks.map(p => (
@@ -65,17 +67,14 @@ class Message extends React.Component {
               <button type="button" className="btn btn-danger">Delete</button>
             </li>
           ))}
-        </ul>
+        </ul> */}
+   
         <Route exact path='/' component={Home} />
-        {/* <Route path='/Home' exact render={(props) => {(
-        <>
-        <div>
-          <h3>Home</h3>
-          <a href='/Task'>Task</a>
-          <Route path='/Task' component={Task} />
-        </div>
-        </>
-        )} /> */}
+          <ChatEngine
+            height="100vh"
+            projectID="098f0f3f-039d-433e-8e78-7a6f4ae2b73d"
+            userName="MD"
+            userSecret="admin" />
       </div>
       </Router>
     );

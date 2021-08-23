@@ -28,6 +28,7 @@ class Home extends React.Component {
           <a href='/Message'>Chat</a>
           <Route path='/Message' component={Message} />
           </div>
+
         </div>
       </Router>
     );
