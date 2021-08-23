@@ -27,11 +27,16 @@ class Home extends React.Component {
           <Route path='/Login' component={Login} />
           </Switch>
           <div style={{background: "#ffffff"}} className="Home">
-          
-          <a href='/Message'>Chat</a>
           <Route path='/Message' component={Message} />
           </div>
-
+          <div>
+            <img 
+              alt= 'The Rant' 
+              // src={'../image/nsey-benajah-5_gku5Usbzk-unsplash.jpg'}
+              ClassName="home-rant-image"
+              style={{ float: 'middle' }}
+               />
+          </div>
         </div>
       </Router>
     );
