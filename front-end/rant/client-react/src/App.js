@@ -1,17 +1,23 @@
 import React from "react";
-// import  Task from "./components/Task";
+ import  Message from "./components/Message";
 import  Home from "./components/Home";
-// import  Register from "./components/Register";
-// import  Login from "./components/Login";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+ import  Register from "./components/Register";
+ import  Login from "./components/Login";
 
 
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Home title='Hello' />
-    </div>
+		<Router>
+		  <Switch>
+		  <Route path='/' exact={true} component={Home} />
+          <Route path='/Message'exact={true} component={Message} />
+          <Route path='/Register' exact={true} component={Register} />
+          <Route path='/Login' exact ={true} component={Login} />
+          </Switch>
+		</Router>
   );
 }
 
