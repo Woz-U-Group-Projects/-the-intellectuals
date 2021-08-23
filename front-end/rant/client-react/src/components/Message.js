@@ -5,11 +5,11 @@ import  Home from "./Home";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import '../task.min.css'
-class Task extends React.Component {
+class Message extends React.Component {
   constructor(props) {
     super(props);
     this.state = { tasks: [] };
-    this.taskName = React.createRef();
+    this.messageContent = React.createRef();
   }
 
   componentDidMount() {
@@ -31,19 +31,19 @@ class Task extends React.Component {
     axios.get(url).then(response => this.setState({ tasks: response.data }));
   };
 
-  addTask = () => {
+  sendMessage = () => {
     //uncomment and update url to appropriate url for backend connection
     //let url = "http://localhost:3001/tasks";
     let url = "http://localhost:8080/message/post";
     axios.post(url, { 
                         id: 456, ///WTF
-                        message: this.taskName.current.value,
-                        content: this.taskName.current.value 
+                        message: this.messageContent.current.value,
+                        content: this.messageContent.current.value 
       }).then(response => {
       // refresh the data
       this.getData();
       // empty the input
-      this.taskName.current.value = "";
+      this.messageContent.current.value = "";
     });
   };
 
@@ -56,8 +56,8 @@ class Task extends React.Component {
       <div>
         <a href='/'>Home</a>
         <h3>MESSAGES</h3>
-        <input ref={this.taskName} />
-        <button type="button" className="btn btn-primary" onClick={this.addTask}>Send</button>
+        <input ref={this.messageContent} />
+        <button type="button" className="btn btn-primary" onClick={this.sendMessage}>Send</button>
         <ul>
           {this.state.tasks.map(p => (
             <li key={p.id}>
@@ -81,4 +81,4 @@ class Task extends React.Component {
   }
 }
 
-export default Task;
+export default Message;

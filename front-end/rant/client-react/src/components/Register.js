@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import '../task.min.css'
-class Task extends React.Component {
+class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = { tasks: [] };
@@ -17,7 +17,7 @@ class Task extends React.Component {
     //UNCOMMENT the appropriate url for the backend framework
 
     // Java Spring Boot uses port 8080
-    let url = "http://localhost:8080/message/fetch";
+    let url = "http://localhost:8080/user/fetch";
 
     // C# dotnetcore uses port 5000
     //let url = "http://localhost:5000/projects";
@@ -30,7 +30,7 @@ class Task extends React.Component {
   addTask = () => {
     //uncomment and update url to appropriate url for backend connection
     //let url = "http://localhost:3001/tasks";
-    let url = "http://localhost:8080/message/post";
+    let url = "http://localhost:8080/user/signup";
     axios.post(url, { 
                         id: 456, ///WTF
                         message: this.taskName.current.value,
@@ -49,13 +49,13 @@ class Task extends React.Component {
   render() {
     return (
       <div>
-        <h3>MESSAGES</h3>
+        <h3>Register</h3>
         <input ref={this.taskName} />
-        <button type="button" className="btn btn-primary" onClick={this.addTask}>Send</button>
+        <button type="button" className="btn btn-primary" onClick={this.addTask}>Sign Up</button>
         <ul>
           {this.state.tasks.map(p => (
             <li key={p.id}>
-              {p.message} <button type="button" className="btn btn-danger">Delete</button>
+              {p.message}
             </li>
           ))}
         </ul>
@@ -64,4 +64,4 @@ class Task extends React.Component {
   }
 }
 
-export default Task;
+export default Register;

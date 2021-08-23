@@ -17,13 +17,11 @@ public class UserController {
 
 	  @PostMapping("/signup")
 	  public void signup(@RequestBody User newUser) {
-		System.out.println("Test");
 	    userService.Save(newUser);
 	  }
 	  
 	  @GetMapping("/fetch")
 	  public List<User> fetch() {
-		  System.out.println("Test");
 		  return userService.getUsers();
 	  }
 	  
