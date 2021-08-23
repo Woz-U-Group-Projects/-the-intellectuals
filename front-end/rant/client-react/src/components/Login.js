@@ -5,7 +5,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { tasks: [] };
-    this.taskName = React.createRef();
+    this.userName = React.createRef();
+    this.password = React.createRef();
   }
 
   componentDidMount() {
@@ -33,13 +34,14 @@ class Login extends React.Component {
     let url = "http://localhost:8080/user/signup";
     axios.post(url, { 
                         id: 456, ///WTF
-                        username: this.taskName.current.value,
-                        password: this.taskName.current.value 
+                        username: this.userName.current.value,
+                        password: this.password.current.value 
       }).then(response => {
       // refresh the data
       this.getData();
       // empty the input
-      this.taskName.current.value = "";
+      this.userName.current.value = "";
+      this.password.current.value = "";
     });
   };
 
@@ -48,18 +50,26 @@ class Login extends React.Component {
 
   render() {
     return (
+	<form action="@{/login}" method="post">
       <div>
+        <a href='/'>Home</a>
+        <a href='/Message'>Chat</a>
+        <a href='/Register'>Register</a>
         <h3>Login</h3>
-        <input ref={this.taskName} />
+        <label>Username<input ref={this.userName} />
+        </label>
+        <label>Password<input type="password" ref={this.password} />
+        </label>
         <button type="button" className="btn btn-primary" onClick={this.addTask}>Sign in</button>
         <ul>
           {this.state.tasks.map(p => (
             <li key={p.id}>
-              {p.message} <button type="button" className="btn btn-danger">Delete</button>
+              {p.message}
             </li>
           ))}
         </ul>
       </div>
+     </form>
     );
   }
 }
