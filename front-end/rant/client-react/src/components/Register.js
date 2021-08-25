@@ -5,7 +5,8 @@ class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = { tasks: [] };
-    this.taskName = React.createRef();
+    this.userName = React.createRef();
+    this.password = React.createRef();
   }
 
   componentDidMount() {
@@ -27,19 +28,20 @@ class Register extends React.Component {
     axios.get(url).then(response => this.setState({ tasks: response.data }));
   };
 
-  addTask = () => {
+  addUser = () => {
     //uncomment and update url to appropriate url for backend connection
     //let url = "http://localhost:3001/tasks";
     let url = "http://localhost:8080/user/signup";
     axios.post(url, { 
                         id: 456, ///WTF
-                        message: this.taskName.current.value,
-                        content: this.taskName.current.value 
+                        username: this.userName.current.value,
+                        password: this.password.current.value 
       }).then(response => {
       // refresh the data
       this.getData();
       // empty the input
-      this.taskName.current.value = "";
+      this.userName.current.value = "";
+      this.password.current.value = "";
     });
   };
 
@@ -49,12 +51,24 @@ class Register extends React.Component {
   render() {
     return (
       <div>
+        <a href='/'>Home</a>
+        <a href='/Message'>Chat</a>
+        <a href='/Login'>Login</a>
         <h3>Register</h3>
-        <input ref={this.taskName} />
-        <button type="button" className="btn btn-primary" onClick={this.addTask}>Sign Up</button>
-        <div>REGISTER NOT DONE YET</div>
-          
+        <label>Username<input ref={this.userName} />
+        </label>
+        <label>Password<input type="password" ref={this.password} />
+        </label>
+        <button type="button" className="btn btn-primary" onClick={this.addUser}>Sign Up</button>
+        <ul>
+          {this.state.tasks.map(p => (
+            <li key={p.id}>
+              {p.message}
+            </li>
+          ))}
+        </ul>
       </div>
+      
     );
   }
 }
