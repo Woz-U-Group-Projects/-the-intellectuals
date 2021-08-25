@@ -1,5 +1,7 @@
 import React from "react";
-
+import Header from './header';
+import Banner from './Banner';
+import About from './About';
 import '../task.min.css'
 class Home extends React.Component {
 
@@ -19,21 +21,11 @@ class Home extends React.Component {
           />
         </div>
         <Header />
-        <hr />
-
         <br />
         <Banner />
+        <br />
         <About />
         <br />
-        <hr />
-        <h1 className="skillheader">Rants</h1>
-        <hr />
-
-        <hr />
-
-        <hr />
-        <h1 id="contactnav" className="contact"></h1>
-        <hr />
       </div>
 
     );
