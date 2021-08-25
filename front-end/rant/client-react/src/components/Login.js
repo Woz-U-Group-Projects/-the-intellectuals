@@ -1,59 +1,49 @@
-import React from "react";
-import axios from "axios";
-import '../task.min.css'
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { tasks: [] };
-    this.taskName = React.createRef();
-  }
+import React, { useState } from 'react';
+import axios from 'axios';
 
-  componentDidMount() {
-    this.getData();
-  }
+const projectID = '1b7801d6-8a66-4be4-a442-89219d833dfc';
 
-  getData = () => {
+const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-    //UNCOMMENT the appropriate url for the backend framework
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    // Java Spring Boot uses port 8080
-    let url = "http://localhost:8080/user/fetch";
+    const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
 
-    // C# dotnetcore uses port 5000
-    //let url = "http://localhost:5000/projects";
+    try {
+      await axios.get('http://localhost:8080/user/fetch', { headers: authObject });
 
-    // Express uses port 3001 (react uses 3000)
-    //let url = "http://localhost:3001/tasks";
-    axios.get(url).then(response => this.setState({ tasks: response.data }));
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+
+      window.location.reload();
+      setError('');
+    } catch (err) {
+      setError('Oops, incorrect credentials.');
+    }
   };
 
-  addTask = () => {
-    //uncomment and update url to appropriate url for backend connection
-    //let url = "http://localhost:3001/tasks";
-    let url = "http://localhost:8080/user/signup";
-    axios.post(url, { 
-                        id: 456, ///WTF
-                        username: this.taskName.current.value,
-                        password: this.taskName.current.value 
-      }).then(response => {
-      // refresh the data
-      this.getData();
-      // empty the input
-      this.taskName.current.value = "";
-    });
-  };
-
-  //create update and delete functions to complete CRUD
-
-
-  render() {
-    return (
-      <div>
-        <h3>Login</h3>
-        <div>LOGIN NOT DONE YET</div>
+  return (
+    <div className="wrapper">
+      <div className="form">
+        <h1 className="title">Chat Application</h1>
+        <form onSubmit={handleSubmit}>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required />
+          <div align="center">
+            <button type="submit" className="button">
+              <span>Start chatting</span>
+            </button>
+          </div>
+        </form>
+        <h1>{error}</h1>
       </div>
-    );
-  }
-}
+    </div>
+
+  );
+};
 
 export default Login;
