@@ -13,7 +13,7 @@ class Home extends React.Component {
           <div>
             <img 
               alt= 'The Rant' 
-              src={'../image/istockphoto-108128667-170667a.jpg'}
+              src={'../image/nsey-benajah-5_gku5Usbzk-unsplash.jpg'}
               ClassName="home-rant-image"
               style={{ float: 'middle' }}
                />
