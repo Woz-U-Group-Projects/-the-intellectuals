@@ -51,22 +51,12 @@ class Register extends React.Component {
   render() {
     return (
       <div>
-        <a href='/'>Home</a>
-        <a href='/Message'>Chat</a>
-        <a href='/Login'>Login</a>
         <h3>Register</h3>
         <label>Username<input ref={this.userName} />
         </label>
         <label>Password<input type="password" ref={this.password} />
         </label>
         <button type="button" className="btn btn-primary" onClick={this.addUser}>Sign Up</button>
-        <ul>
-          {this.state.tasks.map(p => (
-            <li key={p.id}>
-              {p.message}
-            </li>
-          ))}
-        </ul>
       </div>
       
     );
