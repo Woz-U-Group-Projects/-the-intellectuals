@@ -53,10 +53,10 @@ class Message extends React.Component {
           <ChatEngine
             height="100vh"
             projectID="098f0f3f-039d-433e-8e78-7a6f4ae2b73d"
-            userName="MD"
+            userName={localStorage.username}
             // Change the username to EE 
             // Change the username to CB 
-            userSecret="admin" />
+            userSecret={localStorage.password} />
       </div>
     );
   }

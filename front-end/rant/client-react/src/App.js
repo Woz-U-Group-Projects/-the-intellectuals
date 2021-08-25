@@ -13,7 +13,6 @@ function App() {
 
     return (
       <Router>
-
         <div>
           <h1 style={{background: "#00bff3"}}>"Rants"</h1>
           <nav className="navbar navbar-expand-lg navbar-light bg-light" >
@@ -29,7 +28,6 @@ function App() {
           <Route path='/Login' exact={true} component={Login} />
           </Switch>
           <div style={{background: "#ffffff"}} className="Home">
-          <Route path='/Message' component={Message} />
           </div>
         </div>
       </Router>
